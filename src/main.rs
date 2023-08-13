@@ -1,5 +1,9 @@
 use yew::prelude::*;
 
+mod page;
+
+use page::components::header::Header;
+
 #[function_component]
 fn App() -> Html {
     let counter = use_state(|| 0);
@@ -12,6 +16,7 @@ fn App() -> Html {
     };
     html! {
         <div>
+            <Header />
             <button {onclick}>{ "+1" }</button>
             <p>{ *counter }</p>
         </div>
@@ -21,4 +26,3 @@ fn App() -> Html {
 fn main() {
     yew::Renderer::<App>::new().render();
 }
-

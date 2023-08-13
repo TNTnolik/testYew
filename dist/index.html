@@ -2,15 +2,42 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>My yew tests</title>
-    <base href="/testYew/">
-    <link rel="stylesheet" href="/testYew/index-e3b2ca67afb1093.css">
-    <script type="module">import init from '/testYew/testWeb-cf8619427be3e12f.js';init('/testYew/testWeb-cf8619427be3e12f_bg.wasm');</script>
+    <base href="/">
+    <link rel="stylesheet" href="/index-3d5bbee3bbdd2bb.css">
+    <script type="module">import init from '/testWeb-318f3e7066ecc1c.js';init('/testWeb-318f3e7066ecc1c_bg.wasm');</script>
   
-<link rel="preload" href="/testYew/testWeb-cf8619427be3e12f_bg.wasm" as="fetch" type="application/wasm" crossorigin="">
-<link rel="modulepreload" href="/testYew/testWeb-cf8619427be3e12f.js"></head>
+<link rel="preload" href="/testWeb-318f3e7066ecc1c_bg.wasm" as="fetch" type="application/wasm" crossorigin="">
+<link rel="modulepreload" href="/testWeb-318f3e7066ecc1c.js"></head>
   <body>
     
   
 
 
-</body></html>
+<script>(function () {
+    var protocol = window.location.protocol === 'https:' ? 'wss:' : 'ws:';
+    var url = protocol + '//' + window.location.host + '/_trunk/ws';
+    var poll_interval = 5000;
+    var reload_upon_connect = () => {
+        window.setTimeout(
+            () => {
+                // when we successfully reconnect, we'll force a
+                // reload (since we presumably lost connection to
+                // trunk due to it being killed, so it will have
+                // rebuilt on restart)
+                var ws = new WebSocket(url);
+                ws.onopen = () => window.location.reload();
+                ws.onclose = reload_upon_connect;
+            },
+            poll_interval);
+    };
+
+    var ws = new WebSocket(url);
+    ws.onmessage = (ev) => {
+        const msg = JSON.parse(ev.data);
+        if (msg.reload) {
+            window.location.reload();
+        }
+    };
+    ws.onclose = reload_upon_connect;
+})()
+</script></body></html>

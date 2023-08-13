@@ -1,0 +1,29 @@
+* {
+  margin: 0px;
+  padding: 0px;
+}
+
+header {
+  width: 100%;
+  background: #cac;
+  position: center;
+}
+header h1 {
+  margin: 0px 10px;
+}
+header .menu {
+  height: 50px;
+  margin: auto;
+  width: 98%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+header .menu nav ul {
+  display: flex;
+  align-items: center;
+}
+header .menu nav ul li {
+  list-style-type: none;
+  margin: 0px 10px;
+}

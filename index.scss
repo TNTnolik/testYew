@@ -1,6 +1,34 @@
 * {
-  background: #efefef;
   margin: 0px;
   padding: 0px;
+}
+
+
+header {
+  width: 100%;
+  background: #cac;
+  position: center;
+  
+  h1 {
+    margin: 0px 10px;
+  }
+
+  .menu {
+    height: 50px;
+    margin: auto;
+    width: 98%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    nav ul{
+      display: flex;
+      align-items: center;
+      li {
+        list-style-type: none;
+        margin: 0px 10px;
+      }
+    }
+  }
 }
 
