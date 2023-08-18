@@ -16,6 +16,9 @@ pub fn Header() -> Html {
                         <li>
                             {"test 2"}
                         </li>
+                        <li>
+                            {"test 3"}
+                        </li>
                     </ul>
                 </nav>
             </div>
